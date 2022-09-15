@@ -22,6 +22,8 @@ class _SeriesPageState extends State<SeriesPage> {
   List popularSeries = [];
   List topratedSeries = [];
   List trendingSeries = [];
+  List Certifications = [];
+  List Netflix = [];
 
   loadMovies() async {
     TMDB tmdbWithCustomLogs = TMDB(ApiKeys(apikey, token),
@@ -31,6 +33,8 @@ class _SeriesPageState extends State<SeriesPage> {
     Map topratedresult = await tmdbWithCustomLogs.v3.tv.getTopRated();
     Map trendinresult = await tmdbWithCustomLogs.v3.trending
         .getTrending(mediaType: MediaType.tv, timeWindow: TimeWindow.day);
+
+
     setState(() {
       popularSeries = popularresult['results'];
       topratedSeries = topratedresult['results'];
@@ -47,6 +51,7 @@ class _SeriesPageState extends State<SeriesPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+        bottom: false,
         child: popularSeries.length != 0
             ? SingleChildScrollView(
                 child: Column(
@@ -55,7 +60,8 @@ class _SeriesPageState extends State<SeriesPage> {
                     // / ///////////////////////////////////////////////////////This Displays the Header Part of the app
 
                     Padding(
-                      padding: const EdgeInsets.only(top: 11.0, bottom: 10),
+                      padding: const EdgeInsets.only(
+                          top: 11.0, bottom: 10, left: 15, right: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -69,7 +75,7 @@ class _SeriesPageState extends State<SeriesPage> {
                           Padding(
                             padding: const EdgeInsets.only(right: 8.0),
                             child: CircleAvatar(
-                              backgroundImage: AssetImage('images/me.jpg'),
+                              backgroundImage: AssetImage('images/default_user.png'),
                             ),
                           )
                         ],
@@ -77,7 +83,7 @@ class _SeriesPageState extends State<SeriesPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                          left: 8.0, top: 0, bottom: 10, right: 10),
+                          left: 15.0, top: 0, bottom: 20, right: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -123,11 +129,12 @@ class _SeriesPageState extends State<SeriesPage> {
                             ),
                         options: CarouselOptions(
                             enlargeCenterPage: true,
-                            viewportFraction: 0.7,
+                            viewportFraction: 0.6,
                             height: 400,
                             autoPlay: true,
                             autoPlayAnimationDuration: Duration(seconds: 2),
                             autoPlayInterval: Duration(seconds: 4))),
+                   
                     listBuilderSeries(topratedSeries, 'TopRated Series'),
                     listBuilderSeries(popularSeries, 'Popular Series')
                   ],

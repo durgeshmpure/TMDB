@@ -7,8 +7,8 @@ import 'package:flutter_application_1/screens/series_desc.dart';
 import 'desc_test.dart';
 
 class listBuilderMovie extends StatefulWidget {
-  List listTiles;
-  String title;
+ final  List listTiles;
+ final  String title;
   listBuilderMovie(this.listTiles, this.title);
 
   @override
@@ -22,7 +22,7 @@ class _listBuilderMovieState extends State<listBuilderMovie> {
       children: [
         Padding(
           padding:
-              const EdgeInsets.only(left: 8.0, top: 10, bottom: 10, right: 10),
+              const EdgeInsets.only(left: 20.0, top: 15, bottom: 20, right: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -66,7 +66,7 @@ class _listBuilderMovieState extends State<listBuilderMovie> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(left:15.0,right:15,bottom: 8),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
                               child: Container(
@@ -141,8 +141,8 @@ class _listBuilderMovieState extends State<listBuilderMovie> {
 }
 
 class listBuilderSeries extends StatefulWidget {
-  List listTiles;
-  String title;
+ final List listTiles;
+ final  String title;
   listBuilderSeries(this.listTiles,this.title);
 
   @override
@@ -156,7 +156,7 @@ class _listBuilderSeriesState extends State<listBuilderSeries> {
       children: [
         Padding(
           padding:
-              const EdgeInsets.only(left: 8.0, top: 10, bottom: 10, right: 10),
+              const EdgeInsets.only(left: 20.0, top: 15, bottom: 20, right: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -200,7 +200,7 @@ class _listBuilderSeriesState extends State<listBuilderSeries> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                 padding: const EdgeInsets.only(left:15.0,right:15,bottom: 8),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(15),
                                       child: Container(
